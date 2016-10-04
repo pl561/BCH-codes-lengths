@@ -3,7 +3,6 @@
 
 import sys
 import os
-import namedtuple
 
 class BCHCode(object):
     """docstring for BCHCode."""
@@ -11,6 +10,9 @@ class BCHCode(object):
         self.n = n
         self.k = k
         self.t = t
+
+    def getArgs(self):
+        return self.n, self.k, self.t
 
     def getErrorRate(self):
         return float(self.t)/self.n
@@ -26,6 +28,9 @@ class BCHCode(object):
 n = 511 # the last 10 bch codes parameters
 k_values = [10, 19, 28, 40, 49, 58, 67, 76, 85, 94]
 t_values = [119, 111, 109, 95, 93, 91, 87, 85, 63, 62]
+t_values.reverse()
+k_values.reverse()
+
 bchcodes = []
 
 for k, t in zip(k_values, t_values):
@@ -34,7 +39,7 @@ for k, t in zip(k_values, t_values):
 
 def do():
     for tp in bchcodes:
-        print tp
+        print tp.getErrorRate()
 
 def main():
     do()
