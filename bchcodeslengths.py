@@ -18,19 +18,26 @@ class BCHCode(object):
     def getCodeRate(self):
         return float(self.k)/self.n
 
-n = 511
-k_values = []
-t_values = []
+    def __str__(self):
+        return "BCH({}, {}, {})".format(self.n, self.k, self.t)
+    __repr__ = __str__
 
 
+n = 511 # the last 10 bch codes parameters
+k_values = [10, 19, 28, 40, 49, 58, 67, 76, 85, 94]
+t_values = [119, 111, 109, 95, 93, 91, 87, 85, 63, 62]
+bchcodes = []
 
+for k, t in zip(k_values, t_values):
+    bchcodes.append(BCHCode(n, k, t))
 
 
 def do():
-  pass
+    for tp in bchcodes:
+        print tp
 
 def main():
-  do()
+    do()
 
 if __name__ == "__main__":
-  sys.exit(main())
+    sys.exit(main())
