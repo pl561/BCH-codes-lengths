@@ -5,7 +5,8 @@ import sys
 import os
 
 class BCHCode(object):
-    """docstring for BCHCode."""
+    """BCH error correcting code of parameters (n, k, t). n is the code length,
+    k the code dimension and t the number of allowed errors"""
     def __init__(self, n, k, t):
         self.n = n
         self.k = k
